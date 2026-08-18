@@ -1,1 +1,4 @@
 Git notes
+Git has a working directory.
+The staging area stores selected changes.
+A commit records a snapshot.
