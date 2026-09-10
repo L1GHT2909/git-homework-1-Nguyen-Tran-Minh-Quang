@@ -16,8 +16,11 @@ ln dir2/Hi.txt dir2/Hi-hard
 3. rm Hi-hard
 4. rm dir2/Hi.txt
 5. Output of ls -li:
-197121 -rw-r--r-- 1 OS 197121 0 Sep 10 13:40 Hi-sym
-(Hi-sym becomes a broken link because the target file dir2/Hi.txt was deleted)
+total 0
+43628621390370543 -rw-r--r-- 1 OS 197121 0 Sep 10 13:40 Hi-sym
+ 2533274790678206 drwxr-xr-x 1 OS 197121 0 Sep 10 13:49 dir1/
+25614222880966143 drwxr-xr-x 1 OS 197121 0 Sep 10 13:52 dir2/
+
 
 PART C
 1. ls /bin /usr/bin | sort -u | wc -l
@@ -41,6 +44,9 @@ chmod 777 public.txt
 umask
 touch testfile.txt
 ls -l testfile.txt
+output:
+0022
+-rw-r--r-- 1 OS 197121 0 Sep 10 14:00 testfile.txt
 
 Explanation:
 - Default file permission before umask is 666 (rw-rw-rw-).
