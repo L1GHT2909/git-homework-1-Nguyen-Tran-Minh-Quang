@@ -1,0 +1,49 @@
+PART A
+1. cd ~ && mkdir ex3
+2. cd ex3
+3. mkdir dir1 dir2
+4. touch HelloWorld.txt && cp HelloWorld.txt dir1/
+5. cp -i HelloWorld.txt dir1/
+6. mv HelloWorld.txt Hi.txt
+7. mv Hi.txt dir2/
+
+PART B
+1. 
+ln dir2/Hi.txt Hi-hard
+ln dir2/Hi.txt dir1/Hi-hard
+ln dir2/Hi.txt dir2/Hi-hard
+2. ln -s dir2/Hi.txt Hi-sym
+3. rm Hi-hard
+4. rm dir2/Hi.txt
+5. Output of ls -li:
+197121 -rw-r--r-- 1 OS 197121 0 Sep 10 13:40 Hi-sym
+(Hi-sym becomes a broken link because the target file dir2/Hi.txt was deleted)
+
+PART C
+1. ls /bin /usr/bin | sort -u | wc -l
+2. ls /bin /usr/bin | sort -u | grep "zip"
+3. 
+seq 1 30 > sample.txt
+head -n 5 sample.txt
+tail -n 5 sample.txt
+wc sample.txt
+4. ls -la | tee full_listing.txt
+
+PART D
+1. 
+mkdir permissions
+cd permissions
+touch secret.txt shared.txt public.txt
+chmod 600 secret.txt
+chmod 664 shared.txt
+chmod 777 public.txt
+2. 
+umask
+touch testfile.txt
+ls -l testfile.txt
+
+Explanation:
+- Default file permission before umask is 666 (rw-rw-rw-).
+- Current umask is 0022.
+- The resulting permission is calculated as 666 - 022 = 644 (rw-r--r--).
+- Therefore, the file testfile.txt has read and write permissions for the owner, and read-only permissions for the group and others.
