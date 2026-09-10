@@ -1,18 +1,27 @@
+<<<<<<< Updated upstream
 # PART A
 
 ## 1.
 
 ```bash
+=======
+PART A
+1.
+>>>>>>> Stashed changes
 touch week2.md
 touch week2_report.md
 git add week2.md week2_report.md
 git commit -m "Create week2 files"
 git switch -c week2
+<<<<<<< Updated upstream
 ```
 
 ## 2.
 
 ```bash
+=======
+2.
+>>>>>>> Stashed changes
 echo "Content from working 1" >> week2.md
 git add week2.md
 git commit -m "working 1"
@@ -20,15 +29,20 @@ git commit -m "working 1"
 echo "Content from working 2" >> week2.md
 git add week2.md
 git commit -m "working 2"
+<<<<<<< Updated upstream
 ```
 
 ## 3.
 
 ```bash
+=======
+3.
+>>>>>>> Stashed changes
 echo "Final content on week2 branch" >> week2.md
 git add week2.md
 git commit -m "Add final line to week2"
 
+<<<<<<< Updated upstream
 git switch main
 
 echo "After switching to main, the new content from the week2 branch is not visible because the commits only belong to the week2 branch." >> week2_report.md
@@ -55,10 +69,26 @@ The merge was a three-way merge because both branches contained different commit
 ```bash
 git switch -c wip
 
+=======
+git switch master
+
+echo "After switching to master, the new content from week2 branch is not visible because the commits only belong to the week2 branch." >> week2_report.md
+git add week2_report.md
+git commit -m "Document findings about week2 file"
+4.
+git switch -c week2b
+git merge --no-ff week2 -m "Merge week2 into week2b"
+git branch -d week2
+
+PART B
+1.
+git switch -c wip
+>>>>>>> Stashed changes
 echo "Initial work in progress" > wip.txt
 git add wip.txt
 git commit -m "Create wip file"
 
+<<<<<<< Updated upstream
 git switch main
 git merge week2b
 ```
@@ -107,10 +137,36 @@ The local branch `wip` was renamed to `work-in-progress`. The renamed branch was
 ```bash
 git switch work-in-progress
 
+=======
+git switch master
+git merge week2b
+2.
+echo "Merged branches:" >> week2.md
+git branch --merged >> week2.md
+
+echo "Unmerged branches:" >> week2.md
+git branch --no-merged >> week2.md
+
+git add week2.md
+git commit -m "Document merged and unmerged branches"
+3.
+git branch -d week2b
+4.
+git branch -m wip work-in-progress
+git push -u origin work-in-progress
+
+Nếu trước đó đã từng push nhánh wip lên GitHub:
+
+git push origin --delete wip
+PART C
+1.
+git switch work-in-progress
+>>>>>>> Stashed changes
 echo "More work completed on this branch" >> wip.txt
 git add wip.txt
 git commit -m "Update work in progress"
 git push
+<<<<<<< Updated upstream
 ```
 
 ## 2.
@@ -218,3 +274,9 @@ git add week2_report.md
 git commit -m "Complete week 2 report"
 git push origin main
 ```
+=======
+2.
+git branch -vv
+3.
+git push -u origin work-in-progress
+>>>>>>> Stashed changes
